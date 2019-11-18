@@ -5,6 +5,14 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <stdlib.h>
+
+/**
+* main - execute the shell
+* @argc: number of arguemnts
+* @argv: store the arguments
+* Return: if it works
+*/
+
 int main(int argc, char *argv[])
 {
 
@@ -17,7 +25,7 @@ int main(int argc, char *argv[])
 	argc = argc;
 	argv[1] = argv[1];
 	while (msn[count])
-	    count++;
+		count++;
 	while (1)
 	{
 		write(STDOUT_FILENO, msn, count);

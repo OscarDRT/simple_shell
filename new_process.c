@@ -4,6 +4,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+* new_process - perfom parent an child procress
+* to the shell
+* @buff: the input line that user write
+* @name: name of program
+* Return: 1 if work, -1 if dont work
+*/
+
 int new_process(char **buff, char *name)
 {
 	pid_t cpid, w;
@@ -24,12 +32,12 @@ int new_process(char **buff, char *name)
 		}
 	}
 	else if (cpid < 0)
-    	perror("Shell");
+	perror("Shell");
 	else
 	{                    /* Code executed by parent */
-		do
-		{
-        	w = waitpid(cpid, &wstatus, WUNTRACED);
+		do {
+
+			w = waitpid(cpid, &wstatus, WUNTRACED);
 			if (w == -1)
 			{
 				perror("waitpid");
@@ -37,5 +45,5 @@ int new_process(char **buff, char *name)
 			}
 		} while (!WIFEXITED(wstatus) && !WIFSIGNALED(wstatus));
 		return (1);
- 	}
+	}
 }

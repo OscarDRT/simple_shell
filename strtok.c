@@ -2,7 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char **tokenizar( char *buff)
+/**
+* tokenizar - separe the words of buffer
+* @buff: words to separate
+* Return: array with the separated words
+*/
+
+char **tokenizar(char *buff)
 {
 	char *check, **token = malloc(1024 * sizeof(char *));
 	int i;

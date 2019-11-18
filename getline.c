@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/**
+* get_line - read a line from
+* an input stream.
+* Return: buff with the string that read
+*/
+
 char *get_line(void)
 {
 	char *buff = NULL;
