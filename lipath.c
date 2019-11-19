@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "shell.h"
 
-int lpath(char **env)
+list_t *lpath(char **env)
 {
 	char *key = "PATH";
 	char *st;
@@ -20,12 +20,13 @@ int lpath(char **env)
 		i++;
 	}
 
-	print_list(head);
-	return (0);
+	
+	return (head);
 }
 
 int main(int ac, char **av, char **env)
 {
-	lpath(env);
+	list_t *ptr = lpath(env);
+	search(ptr, "ls");
 	return 0;
 }

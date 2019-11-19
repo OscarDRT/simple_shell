@@ -19,11 +19,13 @@ int main(int argc, char **argv, char **env)
 	char *buffer;
 	char **args;
 	int status;
+	list_t *head;
 	int count = 0;
 	char msn[] = "#cisfun$ ";
 
 	argc = argc;
 	argv[1] = argv[1];
+	head = lpath(env);
 	while (msn[count])
 		count++;
 	while (1)
@@ -31,6 +33,7 @@ int main(int argc, char **argv, char **env)
 		write(STDOUT_FILENO, msn, count);
 		buffer = get_line();
 		args = tokenizar(buffer, " \t\n\r");
+		args = search(head, args[0]);
 		status = new_process(args, argv[0], NULL);
 	}
 
