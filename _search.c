@@ -18,7 +18,9 @@ char *search(list_t *h, char *buff)
 			break;
 		}
 		else
-		printf("no FOUND\n");
+		{
+			/* Crear lista y comparar*/
+		}
 		copy = copy->next;
 	}
 	return (save);

@@ -23,10 +23,3 @@ list_t *lpath(char **env)
 	
 	return (head);
 }
-
-int main(int ac, char **av, char **env)
-{
-	list_t *ptr = lpath(env);
-	search(ptr, "ls");
-	return 0;
-}
