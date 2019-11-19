@@ -12,7 +12,7 @@
 * Return: 1 if work, -1 if dont work
 */
 
-int new_process(char **buff, char *name)
+int new_process(char **buff, char *name, char *env)
 {
 	pid_t cpid, w;
 	int wstatus;
@@ -25,10 +25,16 @@ int new_process(char **buff, char *name)
 	}
 	if (cpid == 0)
 	{
-		if (execve(buff[0], buff, NULL) == -1)
+		if (buff[0] == NULL)
+			exit(98);
+		else if (execve(buff[0], buff, NULL) == -1)
 		{
 			perror(name);
 			return (-1);
+		}
+		else
+		{
+			/* Never */
 		}
 	}
 	else if (cpid < 0)

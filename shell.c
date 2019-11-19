@@ -13,9 +13,9 @@
 * Return: if it works
 */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv, char **env)
 {
-
+	char *newpath;
 	char *buffer;
 	char **args;
 	int status;
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		write(STDOUT_FILENO, msn, count);
 		buffer = get_line();
 		args = tokenizar(buffer, " \t\n\r");
-		status = new_process(args, argv[0]);
+		status = new_process(args, argv[0], NULL);
 	}
 
 	write(STDOUT_FILENO, "\n", 1);

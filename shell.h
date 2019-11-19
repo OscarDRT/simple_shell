@@ -25,6 +25,6 @@ list_t *add_node_end(list_t **head, const char *str);
 size_t print_list(const list_t *h);
 char **tokenizar(char *buff, char *special);
 int _setenv(const char *name, const char *value, int overwrite);
-int new_process(char **buff, char *name);
+int new_process(char **buff, char *name, char *env);
 
 #endif

@@ -27,9 +27,6 @@ char * _getenv(char *key, char **env)
 	char **tokkey, **copy = env;
 	int i;
 
-	for (i = 0; env[i] != NULL; i++)
-		copy[i] = env[i];
-	copy[i] = NULL;
 	for (i = 0; copy[i] != NULL; i++)
 	{
 		tokkey = tokenizar(*(copy + i), "=");
@@ -39,17 +36,4 @@ char * _getenv(char *key, char **env)
 		}
 	}
 	return(tokkey[1]);
-}
-
-int main(int ac, char **av, char **env)
-{
-	char *value;
-
-	value = _getenv("SHLVL", env);
-	printf("\n");
-	printf("\n");
-	printf("PATH_ULA es %s\n", value);
-	printf("\n");
-	printf("\n");
-	return(0);
 }
