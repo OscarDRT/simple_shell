@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	{
 		write(STDOUT_FILENO, msn, count);
 		buffer = get_line();
-		args = tokenizar(buffer);
+		args = tokenizar(buffer, " \t\n\r");
 		status = new_process(args, argv[0]);
 	}
 
