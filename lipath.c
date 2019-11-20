@@ -19,7 +19,12 @@ list_t *lpath(char **env)
 		add_node_end(&head, token[i]);
 		i++;
 	}
-
-	
+	print_list(head);
 	return (head);
+}
+
+int main(int argc, char **argv, char **env)
+{
+	lpath(env);
+	return 0;
 }

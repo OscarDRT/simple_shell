@@ -29,7 +29,7 @@ char * _getenv(char *key, char **env)
 
 	for (i = 0; copy[i] != NULL; i++)
 	{
-		tokkey = tokenizar(*(copy + i), "=");
+		tokkey = tokenizar(copy[i], "=");
 		if (_strcmp(tokkey[0], key) == 0)
 		{
 			break;

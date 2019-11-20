@@ -8,17 +8,21 @@
 
 char *search(list_t *h, char *buff)
 {
-	list_t *copy;
+	list_t *copy, *copy2;
 	char *save;
 	copy = h;
+	copy2 = h;
 	struct stat st;
+
 	while (copy)
 	{
 		save = str_concat(copy->str, "/");
 		save = str_concat(save, buff);
 		if (stat(save, &st) == 0)
 		{
-			lsprintf("FOUND\n");
+			copy = copy2;
+			printf("FOUND\n");
+			printf("save: %s copy: %s, copy2: %s\n", save, copy, copy2);
 			break;
 		}
 		else
@@ -43,13 +47,16 @@ int new_process(char **buff, char *name, char **env)
 	int wstatus;
 	struct stat st;
 	list_t *head;
+	char *new_cero;
 
 	if (stat(buff[0], &st) == 0)
 		buff[0] = buff[0];
 	else
 	{
 		head = lpath(env);
-		buff[0] = search(head, buff[0]);
+		new_cero = search(head, buff[0]);
+		buff[0] = new_cero;
+		printf("buffer[0] %s\n", buff[0]);
 
 	}
 	cpid = fork();
@@ -61,7 +68,7 @@ int new_process(char **buff, char *name, char **env)
 	if (cpid == 0)
 	{
 		if (buff[0] == NULL)
-			exit(98);
+			return (1);
 		else if (execve(buff[0], buff, NULL) == -1)
 		{
 			perror(name);
