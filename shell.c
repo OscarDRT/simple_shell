@@ -18,7 +18,7 @@ int main(int argc, char **argv, char **env)
 	char *newpath;
 	char *buffer;
 	char **args;
-	int status;
+	int status = 1;
 	int count = 0;
 	char msn[] = "#cisfun$ ";
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv, char **env)
 		write(STDOUT_FILENO, msn, count);
 		buffer = get_line();
 		args = tokenizar(buffer, " \t\n\r");
-		status = new_process(args, argv[0], env);
+		new_process(args, argv[0], env);
 	}
 
 	write(STDOUT_FILENO, "\n", 1);

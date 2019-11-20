@@ -18,14 +18,13 @@ char *search(list_t *h, char *buff)
 		save = str_concat(copy->str, "/");
 		save = str_concat(save, buff);
 		if (stat(save, &st) == 0)
-		{
 			break;
-		}
 		else
 		{
 			copy = copy->next;
 		}
 	}
+	copy = h;
 	return (save);
 }
 /**
@@ -45,20 +44,8 @@ int new_process(char **buff, char *name, char **env)
 	list_t *head;
 	
 
-	if (stat(buff[0], &st) == 0)
-	{
-		flag1 = 1;
-	}
-
-	flag2 = flag1;
-	if (flag2 < 1)
-	{	
-		buffer = buff[0];
-		head = lpath(env);
-		buff[0] = search(head, buffer);
-	}
-
 	cpid = fork();
+
 	if (cpid == -1)
 	{
 		perror("fork");
@@ -66,17 +53,26 @@ int new_process(char **buff, char *name, char **env)
 	}
 	if (cpid == 0)
 	{
+		if (stat(buff[0], &st) == 0)
+			flag1 = 1;
+
+		flag2 = flag1;
+		if (flag2 < 1)
+		{	
+			buffer = buff[0];
+			head = lpath(env);
+			buff[0] = search(head, buffer);
+		}		
+
 		if (buff[0] == NULL)
 			exit(98);
 		else if (execve(buff[0], buff, NULL) == -1)
 		{
 			perror(name);
-			return (-1);
+			exit(EXIT_FAILURE);
+	//		return (-1);
 		}
-		else
-		{
-			/* Never */
-		}
+		return(wstatus);
 	}
 	else if (cpid < 0)
 	perror("Shell");
