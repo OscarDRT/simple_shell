@@ -22,6 +22,5 @@ char **tokenizar(char *buff, char *special)
 		check = strtok(NULL, special);
 	}
 	token[i] = NULL;
-	free(token);
 	return (token);
 }
