@@ -13,9 +13,8 @@ int search(char **buff, char *name, char **env)
 		return (1);
 	while (count < 2)
 	{
-		if (*(ops[count].str) == *buff[0])
+		if (_strcmp((ops[count].str), buff[0]) == 0)
 		{
-			count = 0;
 			return (ops[count].fun)(env);
 		}
 		count++;
