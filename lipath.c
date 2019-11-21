@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include "shell.h"
 
+/**
+* lpath - makes a linked list of the path
+* @env: the enviroment
+* Return: the head pointer of the linked list
+*/
+
 list_t *lpath(char **env)
 {
 	char *key = "PATH";

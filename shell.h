@@ -8,6 +8,7 @@
 * struct list - Struct list
 * @str: string to store
 * @next: next position
+* @fun: name of function
 */
 
 
@@ -24,7 +25,7 @@ int ops_env(char **env);
 int _strcmp(char *s1, char *s2);
 char *str_concat(char *s1, char *s2);
 char *get_line(void);
-char * _getenv(char *key, char **env);
+char *_getenv(char *key, char **env);
 int _path(char **env);
 list_t *lpath(char **env);
 list_t *add_node_end(list_t **head, const char *str);

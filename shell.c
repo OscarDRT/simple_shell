@@ -10,6 +10,7 @@
 * main - execute the shell
 * @argc: number of arguemnts
 * @argv: store the arguments
+* @env: the enviroment
 * Return: if it works
 */
 

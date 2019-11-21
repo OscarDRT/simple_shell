@@ -5,6 +5,7 @@
 /**
 * tokenizar - separe the words of buffer
 * @buff: words to separate
+* @special: character with separate the string
 * Return: array with the separated words
 */
 

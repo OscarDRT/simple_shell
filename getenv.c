@@ -4,7 +4,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char * _getenv(char *key, char **env)
+/**
+* _getenv - gets variable's value of enviroment
+* @key: variable to get value
+* @env: enviroment
+* Return: the value of variable
+*/
+
+char *_getenv(char *key, char **env)
 {
 	char **tokkey, **copy = env;
 	int i;
@@ -17,5 +24,5 @@ char * _getenv(char *key, char **env)
 			break;
 		}
 	}
-	return(tokkey[1]);
+	return (tokkey[1]);
 }

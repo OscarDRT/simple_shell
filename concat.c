@@ -16,7 +16,7 @@ char *str_concat(char *s1, char *s2)
 	int tam1, tam2, tam, i, j;
 	char *concat;
 
-    if (s1 == NULL)
+	if (s1 == NULL)
 	{
 		s1 = "";
 	}
