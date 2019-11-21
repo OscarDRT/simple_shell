@@ -1,6 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
 #include <stdio.h>
+#include <unistd.h>
 
 
 /**
@@ -13,9 +14,14 @@
 typedef struct list
 {
 	char *str;
+	int (*fun)(char **);
 	struct list *next;
 
 } list_t;
+int _strlen(char *s);
+int ops_exit(char **env);
+int ops_env(char **env);
+int _strcmp(char *s1, char *s2);
 char *str_concat(char *s1, char *s2);
 char *get_line(void);
 char * _getenv(char *key, char **env);
@@ -26,5 +32,5 @@ size_t print_list(const list_t *h);
 char **tokenizar(char *buff, char *special);
 int _setenv(const char *name, const char *value, int overwrite);
 int new_process(char **buff, char *name, char **env);
-
+int search(char **buff, char *name, char **env);
 #endif

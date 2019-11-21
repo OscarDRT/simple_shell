@@ -6,11 +6,11 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
-char *search(list_t *h, char *buff)
+char *searchinlist(list_t *head, char *buff)
 {
 	list_t *copy;
 	char *save;
-	copy = h;
+	copy = head;
 	struct stat st;
 
 	while (copy)
@@ -24,7 +24,7 @@ char *search(list_t *h, char *buff)
 			copy = copy->next;
 		}
 	}
-	copy = h;
+	copy = head;
 	return (save);
 }
 /**
@@ -61,7 +61,7 @@ int new_process(char **buff, char *name, char **env)
 		{	
 			buffer = buff[0];
 			head = lpath(env);
-			buff[0] = search(head, buffer);
+			buff[0] = searchinlist(head, buffer);
 		}		
 
 		if (buff[0] == NULL)

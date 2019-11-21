@@ -6,23 +6,6 @@
 #include <stdlib.h>
 
 /**
- * _strlen - count the number of characters
- * @s: string to count
- * Return: Always cont
- */
-int _strlen(char *s)
-{
-	int cont;
-
-	cont = 0;
-	while (s[cont])
-	{
-		cont++;
-	}
-	return (cont);
-}
-
-/**
  * str_concat - prototype
  * @s1: First string
  * @s2: second string

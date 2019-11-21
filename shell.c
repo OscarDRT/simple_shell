@@ -19,19 +19,16 @@ int main(int argc, char **argv, char **env)
 	char *buffer;
 	char **args;
 	int status = 1;
-	int count = 0;
 	char msn[] = "#cisfun$ ";
 
 	argc = argc;
 	argv[1] = argv[1];
-	while (msn[count])
-		count++;
-	while (1)
+	while (status)
 	{
-		write(STDOUT_FILENO, msn, count);
+		write(STDOUT_FILENO, msn, _strlen(msn));
 		buffer = get_line();
 		args = tokenizar(buffer, " \t\n\r");
-		new_process(args, argv[0], env);
+		status = search(args, argv[0], env);
 	}
 
 	write(STDOUT_FILENO, "\n", 1);
