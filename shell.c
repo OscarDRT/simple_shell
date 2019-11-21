@@ -27,11 +27,13 @@ int main(int argc, char **argv, char **env)
 	{
 		write(STDOUT_FILENO, msn, _strlen(msn));
 		buffer = get_line();
+		if (_strcmp(buffer, "exit 98") == 0)
+			status = 0;
 		args = tokenizar(buffer, " \t\n\r");
 		status = search(args, argv[0], env);
 	}
 
-	write(STDOUT_FILENO, "\n", 1);
+/*	write(STDOUT_FILENO, "\n", 1);*/
 	free(buffer);
 	exit(status);
 }
