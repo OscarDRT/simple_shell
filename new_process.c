@@ -82,4 +82,5 @@ int new_process(char **buff, char *name, char **env)
 		} while (!WIFEXITED(wstatus) && !WIFSIGNALED(wstatus));
 		return (1);
 	}
+	return (1);
 }

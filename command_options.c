@@ -8,8 +8,13 @@
 
 int ops_exit(char **env)
 {
-	return (0);
+	char env1;
+
+	**env = 48;
+	env1 = **env;
+	return (env1 + '0');
 }
+
 
 /**
 * ops_env - print the enviroment
