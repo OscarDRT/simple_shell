@@ -15,13 +15,14 @@
 typedef struct list
 {
 	char *str;
-	int (*fun)(char **);
+	int (*fun)(char **, char **);
 	struct list *next;
 
 } list_t;
 int _strlen(char *s);
-int ops_exit(char **env);
-int ops_env(char **env);
+int _putchar(char c);
+int ops_exit(char **buff, char **env);
+int ops_env(char **, char **env);
 int _strcmp(char *s1, char *s2);
 char *str_concat(char *s1, char *s2);
 char *get_line(void);
@@ -32,6 +33,7 @@ list_t *add_node_end(list_t **head, const char *str);
 size_t print_list(const list_t *h);
 char **tokenizar(char *buff, char *special);
 int _setenv(const char *name, const char *value, int overwrite);
-int new_process(char **buff, char *name, char **env);
-int search(char **buff, char *name, char **env);
+int new_process(char **buff, char **env, int interactions);
+int search(char **buff, char **env, int interactions);
+int _atoi(char *s);
 #endif

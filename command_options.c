@@ -6,13 +6,13 @@
 * Return: (0) to close
 */
 
-int ops_exit(char **env)
+int ops_exit(char **buff, char **env)
 {
-	char env1;
+	int env1;
 
 	**env = 48;
-	env1 = **env;
-	return (env1 + '0');
+	env1 = _atoi(buff[1]);
+	return (env1);
 }
 
 
@@ -22,9 +22,10 @@ int ops_exit(char **env)
 * Return: (1) if work
 */
 
-int ops_env(char **env)
+int ops_env(char **buff, char **env)
 {
 	int i = 0;
+	buff = buff;
 
 	while (env[i] != NULL)
 	{

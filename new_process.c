@@ -24,11 +24,11 @@ char *searchinlist(list_t *head, char *buff)
 		save = str_concat(copy->str, "/");
 		save = str_concat(save, buff);
 		if (stat(save, &st) == 0)
-			break;
+			return (save);
 		copy = copy->next;
 	}
 	copy = head;
-	return (save);
+	return (buff);
 }
 
 /**
@@ -40,14 +40,16 @@ char *searchinlist(list_t *head, char *buff)
 * Return: 1 if work, -1 if dont work
 */
 
-int new_process(char **buff, char *name, char **env)
+int new_process(char **buff, char **env, int interactions)
 {
 	pid_t cpid, w;
 	int wstatus, flag1 = 0, flag2 = 0;
 	struct stat st;
 	char *buffer;
 	list_t *head;
+	//char *i;
 
+	//i = (interactions + 48);
 	cpid = fork();
 	if (cpid == -1)
 		perror("fork"), exit(EXIT_FAILURE);
@@ -66,7 +68,7 @@ int new_process(char **buff, char *name, char **env)
 			exit(98);
 		else if (execve(buff[0], buff, NULL) == -1)
 		{
-			perror(name);
+			write(1, buff[0], _strlen(buff[0]));
 			exit(EXIT_FAILURE);
 		}
 		return (wstatus);
