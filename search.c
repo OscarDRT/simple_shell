@@ -24,7 +24,7 @@ int search(char **buff, char **env, int interactions)
 	{
 		if (_strcmp((ops[count].str), buff[0]) == 0)
 		{
-			return ((ops[count].fun)(buff, env));
+			return ((ops[count].fun)(buff[1], env));
 		}
 		count++;
 	}

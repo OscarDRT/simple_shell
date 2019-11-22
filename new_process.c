@@ -47,9 +47,8 @@ int new_process(char **buff, char **env, int interactions)
 	struct stat st;
 	char *buffer;
 	list_t *head;
-	//char *i;
+	interactions = interactions;
 
-	//i = (interactions + 48);
 	cpid = fork();
 	if (cpid == -1)
 		perror("fork"), exit(EXIT_FAILURE);

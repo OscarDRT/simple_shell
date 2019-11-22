@@ -15,14 +15,14 @@
 typedef struct list
 {
 	char *str;
-	int (*fun)(char **, char **);
+	int (*fun)(char *, char **);
 	struct list *next;
 
 } list_t;
 int _strlen(char *s);
 int _putchar(char c);
-int ops_exit(char **buff, char **env);
-int ops_env(char **, char **env);
+int ops_exit(char *buff, char **env);
+int ops_env(char *, char **env);
 int _strcmp(char *s1, char *s2);
 char *str_concat(char *s1, char *s2);
 char *get_line(void);

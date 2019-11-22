@@ -3,8 +3,7 @@
 
 int _atoi(char *s)
 {
-	int b = 0, c, signo = 1, f = 0;
-	unsigned int e = 0;
+	int b = 0, c, signo = 1, f = 0, e = 0;
 
 	while (s[b] != '\0')
 	{
