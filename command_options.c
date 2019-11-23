@@ -8,22 +8,12 @@
 
 int ops_exit(char **buff, char **env)
 {
-	int i;
 	char env1;
 
-	**env = 48;
+	buff = buff;
+	** env = 50;
 	env1 = **env;
-	if (_strcmp(buff[0], "exit") == 0)
-	{
-		i = 0;
-		while (buff[i])
-			i++;
-		if (i == 1 && buff[i + 1] == '\0')
-			exit(env1 - '0');
-		if (i == 2)
-			exit(_atoi(buff[i - 1]));
-	}
-	return (0);
+	return (env1 + '0');
 }
 
 /**
@@ -45,28 +35,27 @@ int ops_env(char **buff, char **env)
 	}
 	return (1);
 }
-/*
+
 int ops_cd(char **buff, char **env)
 {
 	buff = buff;
 	env = env;
 	char *sig = "-";
 	char buffer[1024];
-	char *oldpwd;
-	char *newpwd;
+	char *oldpwd, *newpwd;
 
 	if (buff[1] == NULL)
 		chdir("/home/");
 	else if (buff[1] != sig)
 	{
 		oldpwd = getcwd(buffer, sizeof(buffer));
-		printf("%s\n", oldpwd);
 		if (chdir(buff[1]) == -1)
-			perror(buff[1]);
-
+		{
+			newpwd = str_concat(oldpwd, buff[1]);
+			if (chdir(newpwd) == -1)
+				perror(buff[1]);
+		}
 		newpwd = getcwd(buffer, sizeof(buffer));
-		printf("%s\n", newpwd);
 	}
 	return (1);
 }
-*/
