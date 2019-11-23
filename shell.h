@@ -33,7 +33,7 @@ list_t *add_node_end(list_t **head, const char *str);
 size_t print_list(const list_t *h);
 char **tokenizar(char *buff, char *special);
 int _setenv(const char *name, const char *value, int overwrite);
-int new_process(char **buff, char **env, int interactions);
-int search(char **buff, char **env, int interactions);
+int new_process(char **buff, char **env, int interactions, char *name);
+int search(char **buff, char **env, int interactions, char *name);
 int _atoi(char *s);
 #endif

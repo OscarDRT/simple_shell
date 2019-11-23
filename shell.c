@@ -29,7 +29,7 @@ int main(int argc, char **argv, char **env)
 		buffer = get_line();
 		args = tokenizar(buffer, " \t\n\r");
 		interactions++;
-		status = search(args, env, interactions);
+		status = search(args, env, interactions, argv[0]);
 	}
 	free(buffer);
 	exit(status);

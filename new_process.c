@@ -40,12 +40,12 @@ char *searchinlist(list_t *head, char *buff)
 * Return: 1 if work, -1 if dont work
 */
 
-int new_process(char **buff, char **env, int interactions)
+int new_process(char **buff, char **env, int interactions, char *name)
 {
 	pid_t cpid, w;
 	int wstatus, flag1 = 0, flag2 = 0;
 	struct stat st;
-	char *buffer;
+	char *buffer, *error;
 	list_t *head;
 	interactions = interactions;
 
@@ -67,8 +67,11 @@ int new_process(char **buff, char **env, int interactions)
 			exit(98);
 		else if (execve(buff[0], buff, NULL) == -1)
 		{
-			write(1, buff[0], _strlen(buff[0]));
-			exit(EXIT_FAILURE);
+			error = str_concat(name, ": ");
+			error = str_concat(error, buff[0]);
+			write(STDOUT_FILENO, error, _strlen(error));
+			write(STDOUT_FILENO, "\n", 1);
+			    exit(EXIT_FAILURE);
 		}
 		return (wstatus);
 	}

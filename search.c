@@ -8,7 +8,7 @@
 * Return: a execution of fucntion
 */
 
-int search(char **buff, char **env, int interactions)
+int search(char **buff, char **env, int interactions, char *name)
 {
 	int count = 0;
 	list_t ops[] = {
@@ -29,5 +29,5 @@ int search(char **buff, char **env, int interactions)
 		count++;
 	}
 
-	return (new_process(buff, env, interactions));
+	return (new_process(buff, env, interactions, name));
 }
