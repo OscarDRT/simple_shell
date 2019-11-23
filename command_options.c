@@ -6,7 +6,7 @@
 * Return: (0) to close
 */
 
-int ops_exit(char *buff, char **env)
+int ops_exit(char **buff, char **env)
 {
 	char env1;
 
@@ -22,7 +22,7 @@ int ops_exit(char *buff, char **env)
 * Return: (1) if work
 */
 
-int ops_env(char *buff, char **env)
+int ops_env(char **buff, char **env)
 {
 	int i = 0;
 	buff = buff;
@@ -32,6 +32,30 @@ int ops_env(char *buff, char **env)
 		write(STDOUT_FILENO, env[i], _strlen(env[i]));
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
+	}
+	return (1);
+}
+
+int ops_cd(char **buff, char **env)
+{
+	buff = buff;
+	env = env;
+	char *sig = "-";
+	char buffer[1024];
+	char *oldpwd;
+	char *newpwd;
+
+	if (buff[1] == NULL)
+		chdir("/home/");
+	else if (buff[1] != sig)
+	{
+		oldpwd = getcwd(buffer, sizeof(buffer));
+		printf("%s\n", oldpwd);
+		if (chdir(buff[1]) == -1)
+			perror(buff[1]);
+
+		newpwd = getcwd(buffer, sizeof(buffer));
+		printf("%s\n", newpwd);
 	}
 	return (1);
 }

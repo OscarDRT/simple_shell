@@ -14,17 +14,18 @@ int search(char **buff, char **env, int interactions, char *name)
 	list_t ops[] = {
 		{"env", ops_env, NULL},
 		{"exit", ops_exit, NULL},
+		{"cd", ops_cd, NULL},
 		{NULL, NULL, NULL}
 	};
 
 	/*if the user push enter*/
 	if (buff[0] == NULL)
 		return (1);
-	while (count < 2)
+	while (ops[count].str != NULL)
 	{
 		if (_strcmp((ops[count].str), buff[0]) == 0)
 		{
-			return ((ops[count].fun)(buff[1], env));
+			return ((ops[count].fun)(buff, env));
 		}
 		count++;
 	}
