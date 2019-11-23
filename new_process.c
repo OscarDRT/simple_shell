@@ -47,7 +47,6 @@ int new_process(char **buff, char **env, int interactions, char *name)
 	struct stat st;
 	char *buffer, *error;
 	list_t *head;
-	interactions = interactions;
 
 	cpid = fork();
 	if (cpid == -1)
@@ -67,8 +66,7 @@ int new_process(char **buff, char **env, int interactions, char *name)
 			exit(98);
 		else if (execve(buff[0], buff, NULL) == -1)
 		{
-			error = str_concat(name, ": ");
-			error = str_concat(error, buff[0]);
+			error = error_msn(name, interactions, buff[0]);
 			write(STDOUT_FILENO, error, _strlen(error));
 			write(STDOUT_FILENO, "\n", 1);
 			    exit(EXIT_FAILURE);

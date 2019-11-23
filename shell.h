@@ -38,4 +38,6 @@ int _setenv(const char *name, const char *value, int overwrite);
 int new_process(char **buff, char **env, int interactions, char *name);
 int search(char **buff, char **env, int interactions, char *name);
 int _atoi(char *s);
+char *_itoi(int interac, char *str);
+char *error_msn(char *name, int interactions, char *buff);
 #endif
