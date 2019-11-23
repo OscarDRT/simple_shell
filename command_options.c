@@ -45,26 +45,21 @@ int ops_env(char **buff, char **env)
 	}
 	return (1);
 }
-
+/**
 int ops_cd(char **buff, char **env)
 {
 	env = env;
-	char *sig = "-";
-	/**
-	 * char buffer[1024];
-	char *oldpwd;
-	char *newpwd;
-	oldpwd = getcwd(buffer, sizeof(buffer));
-	newpwd = getcwd(buffer, sizeof(buffer));
-	*/
 
-	if (buff[1] == NULL)
+	if(buff[1] == NULL)
 		chdir("/home/");
-	else if (buff[1] != sig)
+
+	 * if(buff[1] == '-')
+		print("Entro\n");
+
+	else
 	{
-		if (chdir(buff[1]) == -1)
-			perror(buff[1]);
+		chdir(buff[1]);
 	}
 	return (1);
 }
-
+ */
