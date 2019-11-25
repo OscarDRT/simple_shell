@@ -19,9 +19,9 @@ int ops_exit(char **buff, char **env)
 		while (buff[i])
 			i++;
 		if (i == 1 && buff[i + 1] == NULL)
-			exit(env1 - '0');
+			return(env1 - '0');
 		if (i == 2)
-			exit(_atoi(buff[i - 1]));
+			return(_atoi(buff[i - 1]));
 	}
 	return (0);
 }

@@ -34,6 +34,5 @@ int main(int argc, char **argv, char **env)
 		status = search(args, env, interactions, argv[0]);
 		free_grid(args, len);
 	}
-	free(buffer);
 	exit(status);
 }
