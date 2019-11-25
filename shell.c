@@ -18,7 +18,7 @@ int main(int argc, char **argv, char **env)
 {
 	char *buffer;
 	char **args;
-	int status = 1, interactions = 0;
+	int status = 1, interactions = 0, lenargs = 0;
 	char msn[] = "#cisfun$ ";
 
 	argc = argc;
@@ -28,8 +28,13 @@ int main(int argc, char **argv, char **env)
 		write(STDOUT_FILENO, msn, _strlen(msn));
 		buffer = get_line();
 		args = tokenizar(buffer, " \t\n\r");
+		while (args[lenargs] != NULL)
+			lenargs++;
+		printf("%d\n", lenargs);
 		interactions++;
 		status = search(args, env, interactions, argv[0]);
 	}
+	free(buffer);
+	free(args);
 	exit(status);
 }
