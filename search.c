@@ -14,7 +14,7 @@ int search(char **buff, char **env, int interactions, char *name)
 	list_t ops[] = {
 		{"env", ops_env, NULL},
 		{"exit", ops_exit, NULL},
-		{"cd", ops_cd, NULL},
+/*		{"cd", ops_cd, NULL},*/
 		{NULL, NULL, NULL}
 	};
 
