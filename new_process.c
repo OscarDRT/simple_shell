@@ -44,7 +44,7 @@ int new_process(char **buff, char **env, int interactions, char *name)
 {
 	pid_t cpid, w;
 	int wstatus;
-	char *buffer, *error;
+	char *buffer, *inters, str[1024];
 	list_t *head;
 
 	cpid = fork();
@@ -54,15 +54,22 @@ int new_process(char **buff, char **env, int interactions, char *name)
 	{
 			buffer = buff[0];
 			head = lpath(env);
+			if (head == NULL)
+				return (1);
 			buff[0] = searchinlist(head, buffer);
 
 		if (buff[0] == NULL)
 			exit(98);
 		else if (execve(buff[0], buff, NULL) == -1)
 		{
-			error = error_msn(name, interactions, buff[0]);
-			write(STDOUT_FILENO, error, _strlen(error));
-			write(STDOUT_FILENO, "\n", 1);
+			inters = _itoi(interactions, str);
+			write(STDOUT_FILENO, name, _strlen(name));
+			write(STDOUT_FILENO, ": ", _strlen(": "));
+			write(STDOUT_FILENO, inters, _strlen(inters));
+			write(STDOUT_FILENO, ": ", _strlen(": "));
+			write(STDOUT_FILENO, buff[0], _strlen(buff[0]));
+			write(STDOUT_FILENO, ": ", _strlen(": "));
+			write(STDOUT_FILENO, "not found\n", _strlen("not found\n"));
 			free_grid(buff, 1);
 			exit(EXIT_FAILURE);
 		}
