@@ -43,8 +43,7 @@ char *searchinlist(list_t *head, char *buff)
 int new_process(char **buff, char **env, int interactions, char *name)
 {
 	pid_t cpid, w;
-	int wstatus, flag1 = 0, flag2 = 0;
-	struct stat st;
+	int wstatus;
 	char *buffer, *error;
 	list_t *head;
 
@@ -53,15 +52,10 @@ int new_process(char **buff, char **env, int interactions, char *name)
 		perror("fork"), exit(EXIT_FAILURE);
 	if (cpid == 0)
 	{
-		if (stat(buff[0], &st) == 0)
-			flag1 = 1;
-		flag2 = flag1;
-		if (flag2 < 1)
-		{
 			buffer = buff[0];
 			head = lpath(env);
 			buff[0] = searchinlist(head, buffer);
-		}
+
 		if (buff[0] == NULL)
 			exit(98);
 		else if (execve(buff[0], buff, NULL) == -1)
