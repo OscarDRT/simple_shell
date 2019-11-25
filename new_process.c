@@ -63,7 +63,8 @@ int new_process(char **buff, char **env, int interactions, char *name)
 			error = error_msn(name, interactions, buff[0]);
 			write(STDOUT_FILENO, error, _strlen(error));
 			write(STDOUT_FILENO, "\n", 1);
-			    exit(EXIT_FAILURE);
+			free_grid(buff, 1);
+			exit(EXIT_FAILURE);
 		}
 		return (wstatus);
 	}
