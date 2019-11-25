@@ -18,6 +18,8 @@ list_t *lpath(char **env)
 
 	head = NULL;
 	st = _getenv(key, env);
+	if (st == NULL)
+		return (NULL);
 	token = tokenizar(st, ":");
 
 	while (token[i] != NULL)

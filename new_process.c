@@ -54,6 +54,8 @@ int new_process(char **buff, char **env, int interactions, char *name)
 	{
 			buffer = buff[0];
 			head = lpath(env);
+			if (head == NULL)
+				return (1);
 			buff[0] = searchinlist(head, buffer);
 
 		if (buff[0] == NULL)

@@ -30,7 +30,6 @@ int main(int argc, char **argv, char **env)
 		args = tokenizar(buffer, " \t\n\r");
 		while (args[lenargs] != NULL)
 			lenargs++;
-		printf("%d\n", lenargs);
 		interactions++;
 		status = search(args, env, interactions, argv[0]);
 	}
