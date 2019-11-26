@@ -54,8 +54,6 @@ int ops_env(char **buff, char **env)
 
 int ops_help(char **buff, char **env)
 {
-	env = env;
-	buff = buff;
 	char msn[] = "This program was developed by Paula Fuentes and Oscar Riaño,"
 	" as a proposed study project in Holberton Colombia.\n\n"
 	"November 2019\n"
@@ -68,6 +66,8 @@ int ops_help(char **buff, char **env)
 	char help[] = "Help: Explanation about the program\n\n"
 	"Options:\nhelp paula\nhelp oscar\n";
 
+	env = env;
+	buff = buff;
 	if (buff[1] == NULL)
 		write(STDOUT_FILENO, msn, _strlen(msn));
 	else
