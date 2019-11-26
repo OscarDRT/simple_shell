@@ -27,7 +27,7 @@ list_t *lpath(char **env)
 		add_node_end(&head, token[i]);
 		i++;
 	}
-	//free(token);
+/*free(token);*/
 	return (head);
 }
 

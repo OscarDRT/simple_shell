@@ -32,8 +32,6 @@ char *searchinlist(list_t *head, char *buff)
 		copy = copy->next;
 	}
 	copy = head;
-	free(save);
-	free_list(head);
 	return (buff);
 }
 
@@ -76,8 +74,6 @@ int new_process(char **buff, char **env, int interactions, char *name)
 			write(STDOUT_FILENO, "not found\n", _strlen("not found\n"));
 			exit(EXIT_FAILURE);
 		}
-		free_grid(buff);
-		free_list(head);
 		return (wstatus);
 	}
 	else if (cpid < 0)

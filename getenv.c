@@ -24,6 +24,6 @@ char *_getenv(char *key, char **env)
 			break;
 		}
 	}
-	//free_grid(tokkey);
+/*free_grid(tokkey);*/
 	return (tokkey[1]);
 }
