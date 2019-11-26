@@ -56,16 +56,16 @@ int ops_help(char **buff, char **env)
 {
 	env = env;
 	buff = buff;
-	char *msn = "This program was developed by Paula Fuentes and Oscar Riaño,"
+	char msn[] = "This program was developed by Paula Fuentes and Oscar Riaño,"
 	" as a proposed study project in Holberton Colombia.\n\n"
 	"November 2019\n"
 	"You are free to download the files and run the program, but please don't cheat.\n"
 	"Then use help paula and help oscar\n";
-	char *pau = "Paula fuentes, cohorte 10 Medellin\n"
+	char pau[] = "Paula fuentes, cohorte 10 Medellin\n"
 				"           :):):):)               \n";
-	char *osc = "Oscar Riaño, cohorte 10 Medellin\n"
+	char osc[] = "Oscar Riaño, cohorte 10 Medellin\n"
 				"           :):):):)               \n";
-	char *help = "Help: Explanation about the program\n\n"
+	char help[] = "Help: Explanation about the program\n\n"
 	"Options:\nhelp paula\nhelp oscar\n";
 
 	if (buff[1] == NULL)
@@ -88,7 +88,7 @@ int ops_help(char **buff, char **env)
 	return (1);
 }
 
-/**
+/*
 int ops_cd(char **buff, char **env)
 {
 	env = env;
