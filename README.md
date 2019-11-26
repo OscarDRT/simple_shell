@@ -33,5 +33,5 @@ after compile the file, run the program and try the next commands;
 - exit
 
 ## Authors:
-Paula Fuentes
+Paula Fuentes\n
 Oscar Riaño
