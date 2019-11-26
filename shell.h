@@ -21,11 +21,15 @@ typedef struct list
 	struct list *next;
 
 } list_t;
+
+char *oldpwd, *newpwd, *tmppwd;
+
 int _strlen(char *s);
 int _putchar(char c);
 int ops_exit(char **buff, char **env);
-int ops_env(char ** buff, char **env);
+int ops_env(char **buff, char **env);
 int ops_cd(char **buff, char **env);
+int ops_help(char **buff, char **env);
 int _strcmp(char *s1, char *s2);
 char *str_concat(char *s1, char *s2);
 char *get_line(void);
