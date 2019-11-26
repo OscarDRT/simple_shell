@@ -25,8 +25,6 @@ char *searchinlist(list_t *head, char *buff)
 		save = str_concat(save, buff);
 		if (stat(save, &st) == 0)
 		{
-			free_list(head);
-			free(copy);
 			return (save);
 		}
 		copy = copy->next;

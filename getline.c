@@ -18,5 +18,6 @@ char *get_line(void)
 		write(1, "\n", 1);
 		exit(EXIT_FAILURE);
 	}
+
 	return (buff);
 }

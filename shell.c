@@ -32,6 +32,11 @@ int main(int argc, char **argv, char **env)
 			lenargs++;
 		interactions++;
 		status = search(args, env, interactions, argv[0]);
+		if (status == 1)
+		{
+			free(buffer);
+			free(args);
+		}
 	}
 	free(buffer);
 	exit(status);

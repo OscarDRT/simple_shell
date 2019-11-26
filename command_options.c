@@ -19,9 +19,27 @@ int ops_exit(char **buff, char **env)
 		while (buff[i])
 			i++;
 		if (i == 1 && buff[i + 1] == NULL)
+		{
+/*			j = 0;
+			while (buff[j])
+			{
+				free(buff[j]);
+				j++;
+			}	*/
+			free(buff);
 			return(env1 - '0');
+		}
 		if (i == 2)
+		{
+/*			j = 1;
+			while(buff[j])
+			{
+				free(buff[j]);
+				j++;
+			}*/
+			free(buff);
 			return(_atoi(buff[i - 1]));
+		}
 	}
 	return (0);
 }
@@ -43,7 +61,8 @@ int ops_env(char **buff, char **env)
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
-	free_grid(buff);
+/*	free(*buff);
+	free(*env);*/
 	return (1);
 }
 /**
