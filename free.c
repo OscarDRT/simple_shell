@@ -7,11 +7,11 @@
 * @len: distande to free
 */
 
-void free_grid(char **grid, int len)
+void free_grid(char **grid)
 {
 	int i;
 
-	for (i = 0; i < len; i++)
+	for (i = 0;grid[i] != NULL; i++)
 	{
 		free(grid[i]);
 	}

@@ -43,6 +43,7 @@ int ops_env(char **buff, char **env)
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
+	free_grid(buff);
 	return (1);
 }
 /**

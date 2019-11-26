@@ -2,6 +2,7 @@
 #define SHELL_H
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 
 
@@ -40,5 +41,6 @@ int search(char **buff, char **env, int interactions, char *name);
 int _atoi(char *s);
 char *_itoi(int interac, char *str);
 char *error_msn(char *name, int interactions, char *buff);
-void free_grid(char **grid, int len);
+void free_grid(char **grid);
+void free_list(list_t *head);
 #endif

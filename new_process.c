@@ -24,10 +24,16 @@ char *searchinlist(list_t *head, char *buff)
 		save = str_concat(copy->str, "/");
 		save = str_concat(save, buff);
 		if (stat(save, &st) == 0)
+		{
+			free_list(head);
+			free(copy);
 			return (save);
+		}
 		copy = copy->next;
 	}
 	copy = head;
+	free(save);
+	free_list(head);
 	return (buff);
 }
 
@@ -54,8 +60,6 @@ int new_process(char **buff, char **env, int interactions, char *name)
 	{
 			buffer = buff[0];
 			head = lpath(env);
-			if (head == NULL)
-				return (1);
 			buff[0] = searchinlist(head, buffer);
 
 		if (buff[0] == NULL)
@@ -70,9 +74,10 @@ int new_process(char **buff, char **env, int interactions, char *name)
 			write(STDOUT_FILENO, buff[0], _strlen(buff[0]));
 			write(STDOUT_FILENO, ": ", _strlen(": "));
 			write(STDOUT_FILENO, "not found\n", _strlen("not found\n"));
-			free_grid(buff, 1);
 			exit(EXIT_FAILURE);
 		}
+		free_grid(buff);
+		free_list(head);
 		return (wstatus);
 	}
 	else if (cpid < 0)
