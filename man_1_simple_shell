@@ -40,20 +40,6 @@ simple_shell can be run in non-interactive mode through the use of shell scripts
 .RS
 .B echo 'pwd' | ./hsh
 
-.SH EXECUTABLES
-
-Example of executables:
-.IP
-.br
-.\&
-.RS
-\&$ echo "Example of executables"
-.br
-\&"Example of executables"
-.br
-\&$
-
-
 .SH BUILTINS
 
 .IT
