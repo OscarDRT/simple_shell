@@ -8,6 +8,9 @@
 
 /**
  * error_msn - function that prints error message when the command do not exist
+ * @buff: the input line that user writ
+ * @interactions: number users interactions
+ * @name: name of program
  */
 void error_msn(char *name, int interactions, char *buff)
 {
