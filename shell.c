@@ -26,7 +26,7 @@ int main(int argc, char **argv, char **env)
 	argv[1] = argv[1];
 	while (status == 0)
 	{
-		if(isatty(STDIN_FILENO))
+		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "#cisfun$ ", _strlen("#cisfun$ "));
 		buffer = get_line();
 		args = tokenizar(buffer, " \t\n\r");
