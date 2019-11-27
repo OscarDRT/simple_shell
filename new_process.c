@@ -100,7 +100,7 @@ int new_process(char **buff, char **env, int interactions, char *name)
 			if (w == -1)
 				perror("waitpid"), exit(EXIT_FAILURE);
 		} while (!WIFEXITED(wstatus) && !WIFSIGNALED(wstatus));
-		return (1);
+		return (0);
 	}
-	return (1);
+	return (0);
 }
