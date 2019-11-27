@@ -4,30 +4,43 @@
 * ops_exit - close the shell
 * @env: the enviroment
 * @buff: string
+* @interactions: number users interactions
+* @name: name of program
 * Return: (0) to close
 */
 
-int ops_exit(char **buff, char **env)
+int ops_exit(char *name, char **buff, char **env, int interactions)
 {
-	int i;
 	char env1;
+	char *inters, str[1024];
 
-	**env = 48;
+	**env = 49;
 	env1 = **env;
+	inters = _itoi(interactions, str);
 	if (_strcmp(buff[0], "exit") == 0)
 	{
-		i = 0;
-		while (buff[i])
-			i++;
-		if (i == 1 && buff[i + 1] == NULL)
+		if (buff[1] == NULL)
 		{
 			free(buff);
-			_exit(env1 - '0');
+			return (env1 - '0');
 		}
-		if (i == 2)
+		else
 		{
-			free(buff);
-			return (_atoi(buff[i - 1]));
+			if (_atoi(buff[1]) == 0)
+			{
+				write(STDOUT_FILENO, name, _strlen(name));
+				write(STDOUT_FILENO, ": ", _strlen(": "));
+				write(STDOUT_FILENO, inters, _strlen(inters));
+				write(STDOUT_FILENO, ": ", _strlen(": "));
+				write(STDOUT_FILENO, "exit: ", _strlen("exit: "));
+				write(STDOUT_FILENO, "Ilegal number: ", _strlen("Ilegal number: "));
+				write(STDOUT_FILENO, buff[1], _strlen(buff[1]));
+				write(STDOUT_FILENO, "\n", _strlen("\n"));
+			}
+			else
+			{
+				return (_atoi(buff[1]));
+			}
 		}
 	}
 	return (0);
@@ -37,14 +50,18 @@ int ops_exit(char **buff, char **env)
 * ops_env - print the enviroment
 * @buff: string
 * @env: the enviroment
+* @interactions: number users interactions
+* @name: name of program
 * Return: (1) if work
 */
 
-int ops_env(char **buff, char **env)
+int ops_env(char *name, char **buff, char **env, int interactions)
 {
 	int i = 0;
 
 	buff = buff;
+	interactions = interactions;
+	name = name;
 
 	while (env[i] != NULL)
 	{
@@ -59,10 +76,12 @@ int ops_env(char **buff, char **env)
 * ops_help - give helpfull information
 * @buff: name of help
 * @env: environ
+* @interactions: number users interactions
+* @name: name of program
 * Return: if it work
 */
 
-int ops_help(char **buff, char **env)
+int ops_help(char *name, char **buff, char **env, int interactions)
 {
 	char msn[] = "This program was developed by Paula Fuentes and Oscar Riaño,\n"
 	" as a proposed study project in Holberton Colombia.\n\n"
@@ -78,6 +97,8 @@ int ops_help(char **buff, char **env)
 
 	env = env;
 	buff = buff;
+	interactions = interactions;
+	name = name;
 	if (buff[1] == NULL)
 		write(STDOUT_FILENO, msn, _strlen(msn));
 	else
