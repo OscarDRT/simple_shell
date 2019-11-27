@@ -30,7 +30,7 @@ int ops_exit(char **buff, char **env)
 			_exit(_atoi(buff[i - 1]));
 		}
 	}
-	_exit(0);
+	return (0);
 }
 
 /**
