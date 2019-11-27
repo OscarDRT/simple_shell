@@ -19,7 +19,7 @@ char *get_line(void)
 	{
 		if(isatty(STDIN_FILENO))
 			write(1, "\n", 1);
-		exit(EXIT_FAILURE);
+		exit(0);
 	}
 
 	return (buff);
