@@ -1,5 +1,10 @@
 #include "shell.h"
 
+/**
+* _atoi - convert a string to int
+* @s: string to convert
+* Return: an int
+*/
 
 int _atoi(char *s)
 {

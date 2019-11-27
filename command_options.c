@@ -3,6 +3,7 @@
 /**
 * ops_exit - close the shell
 * @env: the enviroment
+* @buff: string
 * Return: (0) to close
 */
 
@@ -21,12 +22,12 @@ int ops_exit(char **buff, char **env)
 		if (i == 1 && buff[i + 1] == NULL)
 		{
 			free(buff);
-			return(env1 - '0');
+			return (env1 - '0');
 		}
 		if (i == 2)
 		{
 			free(buff);
-			return(_atoi(buff[i - 1]));
+			return (_atoi(buff[i - 1]));
 		}
 	}
 	return (0);
@@ -34,6 +35,7 @@ int ops_exit(char **buff, char **env)
 
 /**
 * ops_env - print the enviroment
+* @buff: string
 * @env: the enviroment
 * Return: (1) if work
 */
@@ -41,6 +43,7 @@ int ops_exit(char **buff, char **env)
 int ops_env(char **buff, char **env)
 {
 	int i = 0;
+
 	buff = buff;
 
 	while (env[i] != NULL)
@@ -52,9 +55,16 @@ int ops_env(char **buff, char **env)
 	return (1);
 }
 
+/**
+* ops_help - give helpfull information
+* @buff: name of help
+* @env: environ
+* Return: if it work
+*/
+
 int ops_help(char **buff, char **env)
 {
-	char msn[] = "This program was developed by Paula Fuentes and Oscar Riaño,"
+	char msn[] = "This program was developed by Paula Fuentes and Oscar Riaño,\n"
 	" as a proposed study project in Holberton Colombia.\n\n"
 	"November 2019\n"
 	"You are free to download the files and run the program, but please don't cheat.\n"
@@ -80,32 +90,10 @@ int ops_help(char **buff, char **env)
 			write(STDOUT_FILENO, help, _strlen(help));
 		else
 		{
-			write(STDOUT_FILENO, "Prove this ",_strlen("Intent this "));
+			write(STDOUT_FILENO, "Prove this ", _strlen("Intent this "));
 			write(STDOUT_FILENO, buff[1], _strlen(buff[1]));
 			write(STDOUT_FILENO, " --help\n", _strlen(" --help\n"));
 		}
 	}
 	return (1);
 }
-
-/*
-int ops_cd(char **buff, char **env)
-{
-	env = env;
-	char *new;
-	char sig = '-';
-
-	if(buff[1] == NULL)
-		chdir("/home/");
-	else if(buff[1][0] == sig)
-	{
-		newpwd =
-		printf("Entro\n");
-	}
-	else
-	{
-		chdir(buff[1]);
-	}
-	return (1);
-}
-*/

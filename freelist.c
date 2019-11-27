@@ -1,8 +1,10 @@
 #include "shell.h"
+
 /**
  * free_list - function that free the list
  * @head: beginning of list
  */
+
 void free_list(list_t *head)
 {
 	list_t *ptr = head;
@@ -16,3 +18,4 @@ void free_list(list_t *head)
 	}
 	free(head);
 }
+
