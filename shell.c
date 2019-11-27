@@ -20,11 +20,11 @@ int main(int argc, char **argv, char **env)
 {
 	char *buffer;
 	char **args;
-	int status = 1, interactions = 0, lenargs = 0;
+	int status = 0, interactions = 0, lenargs = 0;
 
 	argc = argc;
 	argv[1] = argv[1];
-	while (status == 1)
+	while (status == 0)
 	{
 		if(isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "#cisfun$ ", _strlen("#cisfun$ "));
@@ -34,12 +34,14 @@ int main(int argc, char **argv, char **env)
 			lenargs++;
 		interactions++;
 		status = search(args, env, interactions, argv[0]);
-		if (status == 1)
+		if (status == 0)
 		{
 			free(buffer);
 			free(args);
 		}
 	}
 	free(buffer);
+	if (status == 1)
+		status = 0;
 	exit(status);
 }

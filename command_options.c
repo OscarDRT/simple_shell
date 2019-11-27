@@ -12,7 +12,7 @@ int ops_exit(char **buff, char **env)
 	int i;
 	char env1;
 
-	**env = 48;
+	**env = 49;
 	env1 = **env;
 	if (_strcmp(buff[0], "exit") == 0)
 	{
@@ -30,7 +30,7 @@ int ops_exit(char **buff, char **env)
 			return (_atoi(buff[i - 1]));
 		}
 	}
-	return (0);
+	return (1);
 }
 
 /**
@@ -52,7 +52,7 @@ int ops_env(char **buff, char **env)
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 /**
@@ -95,5 +95,5 @@ int ops_help(char **buff, char **env)
 			write(STDOUT_FILENO, " --help\n", _strlen(" --help\n"));
 		}
 	}
-	return (1);
+	return (0);
 }
