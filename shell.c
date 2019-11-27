@@ -41,7 +41,5 @@ int main(int argc, char **argv, char **env)
 		}
 	}
 	free(buffer);
-	if (status == 1)
-		status = 0;
-	return (status);
+	return (0);
 }
