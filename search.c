@@ -21,7 +21,7 @@ int search(char **buff, char **env, int interactions, char *name)
 
 	/*if the user push enter*/
 	if (buff[0] == NULL)
-		return (1);
+		return (0);
 	while (ops[count].str != NULL)
 	{
 		if (_strcmp((ops[count].str), buff[0]) == 0)
