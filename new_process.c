@@ -98,7 +98,7 @@ int new_process(char **buff, char **env, int interactions, char *name)
 		do {
 			w = waitpid(cpid, &wstatus, WUNTRACED);
 			if (w == -1)
-				perror("waitpid"), exit(EXIT_FAILURE);
+				perror("waitpid"), _exit(0);
 		} while (!WIFEXITED(wstatus) && !WIFSIGNALED(wstatus));
 		return (0);
 	}
