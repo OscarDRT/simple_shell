@@ -17,7 +17,8 @@ char *get_line(void)
 
 	if (getline(&buff, &bufsize, stdin) == -1)
 	{
-		write(1, "\n", 1);
+		if(isatty(STDIN_FILENO))
+			write(1, "\n", 1);
 		exit(EXIT_FAILURE);
 	}
 

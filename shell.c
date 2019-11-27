@@ -6,6 +6,7 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
 * main - execute the shell
@@ -20,13 +21,13 @@ int main(int argc, char **argv, char **env)
 	char *buffer;
 	char **args;
 	int status = 1, interactions = 0, lenargs = 0;
-	char msn[] = "#cisfun$ ";
 
 	argc = argc;
 	argv[1] = argv[1];
 	while (status == 1)
 	{
-		write(STDOUT_FILENO, msn, _strlen(msn));
+		if(isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "#cisfun$ ", _strlen("#cisfun$ "));
 		buffer = get_line();
 		args = tokenizar(buffer, " \t\n\r");
 		while (args[lenargs] != NULL)
