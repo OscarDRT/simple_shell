@@ -24,7 +24,7 @@ int main(int argc, char **argv, char **env)
 
 	argc = argc;
 	argv[1] = argv[1];
-	while (status == 0)
+	while (1)
 	{
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "#cisfun$ ", _strlen("#cisfun$ "));
@@ -43,5 +43,5 @@ int main(int argc, char **argv, char **env)
 	free(buffer);
 	if (status == 1)
 		status = 0;
-	exit(status);
+	return(0);
 }
