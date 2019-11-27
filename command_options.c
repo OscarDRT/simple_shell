@@ -12,7 +12,7 @@ int ops_exit(char **buff, char **env)
 	int i;
 	char env1;
 
-	**env = 48;
+	**env = 49;
 	env1 = **env;
 	if (_strcmp(buff[0], "exit") == 0)
 	{
@@ -22,12 +22,12 @@ int ops_exit(char **buff, char **env)
 		if (i == 1 && buff[i + 1] == NULL)
 		{
 			free(buff);
-			_exit(env1 - '0');
+			return (env1 - '0');
 		}
 		if (i == 2)
 		{
 			free(buff);
-			_exit(_atoi(buff[i - 1]));
+			return (_atoi(buff[i - 1]));
 		}
 	}
 	return (0);
