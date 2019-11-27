@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include "shell.h"
 #include <unistd.h>
 #include <stdio.h>

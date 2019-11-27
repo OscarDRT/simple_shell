@@ -4,8 +4,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-
-
 /**
 * struct list - Struct list
 * @str: string to store
