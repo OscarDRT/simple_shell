@@ -74,7 +74,7 @@ int new_process(char **buff, char **env, int interactions, char *name)
 	if (cpid == -1)
 	{
 		perror("fork");
-		exit(EXIT_FAILURE);
+		_exit(0);
 	}
 	if (cpid == 0)
 	{
@@ -83,13 +83,13 @@ int new_process(char **buff, char **env, int interactions, char *name)
 		buff[0] = searchinlist(head, buffer);
 
 		if (buff[0] == NULL)
-			exit(98);
+			_exit(0);
 		else if (execve(buff[0], buff, NULL) == -1)
 		{
 			error_msn(name, interactions, buff[0]);
-			exit(EXIT_FAILURE);
+			_exit(0);
 		}
-		return (wstatus);
+		return (0);
 	}
 	else if (cpid < 0)
 	perror("Shell");
